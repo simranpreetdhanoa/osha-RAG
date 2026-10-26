@@ -1,0 +1,8 @@
+requests
+lxml
+numpy
+scikit-learn
+faiss-cpu
+pytest
+# optional, for --embedder minilm
+# sentence-transformers

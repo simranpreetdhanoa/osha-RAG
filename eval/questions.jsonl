@@ -1,0 +1,60 @@
+{"id":1,"topic":"egress","question":"How many ways out does a workplace need in case of an emergency?","gold":["1910.36"]}
+{"id":2,"topic":"egress","question":"Do exit signs have to be lit and what color letters are allowed?","gold":["1910.37"]}
+{"id":3,"topic":"egress","question":"What must be included in a written emergency action plan?","gold":["1910.38"]}
+{"id":4,"topic":"egress","question":"What goes into a fire prevention plan for a facility?","gold":["1910.39"]}
+{"id":5,"topic":"fire","question":"How often do portable fire extinguishers need to be visually inspected and maintained?","gold":["1910.157"]}
+{"id":6,"topic":"fire","question":"Requirements for an employee alarm system to warn workers of an emergency","gold":["1910.165"]}
+{"id":7,"topic":"fire","question":"What training is required for members of an industrial fire brigade?","gold":["1910.156"]}
+{"id":8,"topic":"walking","question":"What is the maximum spacing between rungs on a fixed ladder?","gold":["1910.23"]}
+{"id":9,"topic":"walking","question":"How tall does the top rail of a guardrail system need to be?","gold":["1910.29"]}
+{"id":10,"topic":"walking","question":"At what height do workers on an unprotected edge need fall protection in general industry?","gold":["1910.28"]}
+{"id":11,"topic":"walking","question":"Who must be trained on fall hazards and when is retraining needed?","gold":["1910.30"]}
+{"id":12,"topic":"walking","question":"Floors in work areas must be kept clean and free of slippery spills and hazards","gold":["1910.22"]}
+{"id":13,"topic":"walking","question":"What strength must an anchorage for a personal fall arrest system support?","gold":["1910.140"]}
+{"id":14,"topic":"walking","question":"Rules for using rope descent systems to clean building windows","gold":["1910.27"]}
+{"id":15,"topic":"walking","question":"Requirements for powered platforms used for exterior building maintenance","gold":["1910.66"]}
+{"id":16,"topic":"walking","question":"Safety rules for aerial lifts and vehicle-mounted elevating work platforms","gold":["1910.67"]}
+{"id":17,"topic":"health","question":"At what noise level must an employer start a hearing conservation program?","gold":["1910.95"]}
+{"id":18,"topic":"ppe","question":"How often do employees need to be fit tested for a tight-fitting respirator?","gold":["1910.134"]}
+{"id":19,"topic":"ppe","question":"Does a worker need a medical evaluation before wearing a respirator?","gold":["1910.134"]}
+{"id":20,"topic":"ppe","question":"Employer must do a workplace hazard assessment and certify it in writing for PPE","gold":["1910.132"]}
+{"id":21,"topic":"ppe","question":"When are safety glasses with side shields or face shields required?","gold":["1910.133"]}
+{"id":22,"topic":"ppe","question":"When do workers have to wear hard hats?","gold":["1910.135"]}
+{"id":23,"topic":"ppe","question":"When is protective footwear like steel toe boots required?","gold":["1910.136"]}
+{"id":24,"topic":"ppe","question":"Requirements for gloves to protect hands from cuts, chemicals and burns","gold":["1910.138"]}
+{"id":25,"topic":"ppe","question":"How often must rubber insulating gloves for electrical work be electrically tested?","gold":["1910.137"]}
+{"id":26,"topic":"hazardous_energy","question":"How often must the energy control procedure be periodically inspected under lockout tagout?","gold":["1910.147"]}
+{"id":27,"topic":"hazardous_energy","question":"Can a tag be used instead of a lock when isolating machine energy?","gold":["1910.147"]}
+{"id":28,"topic":"confined","question":"What must be on an entry permit before workers enter a permit-required confined space?","gold":["1910.146"]}
+{"id":29,"topic":"confined","question":"Duties of the attendant stationed outside a confined space","gold":["1910.146"]}
+{"id":30,"topic":"materials","question":"How often must a forklift operator's performance be re-evaluated?","gold":["1910.178"]}
+{"id":31,"topic":"materials","question":"Requirements for battery charging areas for electric forklifts","gold":["1910.178"]}
+{"id":32,"topic":"materials","question":"How often should overhead cranes be inspected?","gold":["1910.179"]}
+{"id":33,"topic":"materials","question":"When must a wire rope or chain sling be removed from service?","gold":["1910.184"]}
+{"id":34,"topic":"machines","question":"What are the general requirements for guarding the point of operation on machines?","gold":["1910.212"]}
+{"id":35,"topic":"machines","question":"What is the maximum gap between a grinding wheel and the work rest?","gold":["1910.215"]}
+{"id":36,"topic":"machines","question":"Safety requirements for mechanical power presses and two-hand controls","gold":["1910.217"]}
+{"id":37,"topic":"machines","question":"Guarding of belts, pulleys, gears and shafts that transmit power","gold":["1910.219"]}
+{"id":38,"topic":"machines","question":"Guards required on table saws and woodworking machinery","gold":["1910.213"]}
+{"id":39,"topic":"machines","question":"Guarding requirements for portable power tools like circular saws and grinders","gold":["1910.243"]}
+{"id":40,"topic":"health","question":"When is an emergency eyewash or shower required at the workplace?","gold":["1910.151"]}
+{"id":41,"topic":"health","question":"How many toilets must be provided based on the number of employees?","gold":["1910.141"]}
+{"id":42,"topic":"chemicals","question":"What information must be on a chemical container label and safety data sheet?","gold":["1910.1200"]}
+{"id":43,"topic":"chemicals","question":"Does an employer need to offer hepatitis B vaccination to workers exposed to blood?","gold":["1910.1030"]}
+{"id":44,"topic":"chemicals","question":"Where can I find the permissible exposure limits for air contaminants in the Z-1 table?","gold":["1910.1000"]}
+{"id":45,"topic":"chemicals","question":"What is the permissible exposure limit for asbestos fibers?","gold":["1910.1001"]}
+{"id":46,"topic":"chemicals","question":"Exposure monitoring and medical surveillance for benzene","gold":["1910.1028"]}
+{"id":47,"topic":"chemicals","question":"What blood lead level requires medical removal of a worker?","gold":["1910.1025"]}
+{"id":48,"topic":"chemicals","question":"Permissible exposure limit for respirable crystalline silica dust","gold":["1910.1053"]}
+{"id":49,"topic":"chemicals","question":"How long must employee exposure and medical records be kept?","gold":["1910.1020"]}
+{"id":50,"topic":"electrical","question":"How much clear working space is required in front of electrical panels?","gold":["1910.303"]}
+{"id":51,"topic":"electrical","question":"Grounding requirements for cord and plug connected equipment","gold":["1910.304"]}
+{"id":52,"topic":"electrical","question":"Who is allowed to work on energized electrical parts and how must circuits be deenergized?","gold":["1910.333"]}
+{"id":53,"topic":"welding","question":"Fire prevention precautions before welding or cutting near combustibles","gold":["1910.252"]}
+{"id":54,"topic":"welding","question":"How far apart must oxygen cylinders be stored from fuel gas cylinders?","gold":["1910.253"]}
+{"id":55,"topic":"chemicals","question":"Requirements for flammable liquid storage cabinets","gold":["1910.106"]}
+{"id":56,"topic":"chemicals","question":"Ventilation and fire rules for spray painting booths","gold":["1910.107"]}
+{"id":57,"topic":"chemicals","question":"Process hazard analysis for facilities handling highly hazardous chemicals","gold":["1910.119"]}
+{"id":58,"topic":"chemicals","question":"Training hours required for hazardous waste site workers","gold":["1910.120"]}
+{"id":59,"topic":"signs","question":"What color must be used to mark fire protection equipment and danger?","gold":["1910.144"]}
+{"id":60,"topic":"signs","question":"When should danger tags and caution signs be used?","gold":["1910.145"]}
