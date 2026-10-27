@@ -14,6 +14,7 @@ from osha_rag.golden import score_answers, verify_golden
 from osha_rag.grounding import Grounding, evaluate_grounding
 from osha_rag.ingest import build_corpus, load_chunks
 from osha_rag.retrieve import BM25, TFIDF, Hybrid
+from osha_rag import summary
 
 ROOT = Path(__file__).parent
 DATA, RESULTS = ROOT / "data", ROOT / "results"
@@ -30,11 +31,19 @@ def main():
         p.add_argument("--embedder", default="lsa", choices=["lsa", "minilm"])
         p.add_argument("--sentences", type=int, default=5, help="sentences per answer")
     sub.choices["ask"].add_argument("question")
+    sub.add_parser("summary", help="headline metrics from the last eval")
     args = ap.parse_args()
 
     if args.cmd == "build":
         chunks = build_corpus(args.parts, DATA, args.xml)
         print(f"indexed {len(chunks)} chunks from {len({c['section'] for c in chunks})} sections")
+        return
+
+    if args.cmd == "summary":
+        s = summary.summarize(RESULTS, ROOT / "eval/golden_answers_corrected.json")
+        (RESULTS / "summary.json").write_text(json.dumps(s, indent=2))
+        (RESULTS / "summary.md").write_text(summary.to_markdown(s))
+        print(summary.to_markdown(s))
         return
 
     chunks = load_chunks(DATA)
@@ -63,10 +72,10 @@ def main():
                     n: score_answers(a, gold, ver, qs) for n, a in answerers.items()}}
         write(rep, RESULTS)
         print(to_markdown(rep))
-        print(json.dumps({k: v for k, v in rep["grounding"].items() if k != "per_question"}, indent=2))
-        for label, gr in rep["golden"].items():
-            for n, sc in gr["systems"].items():
-                print(label, n, json.dumps(sc["all_questions"]))
+        s = summary.summarize(RESULTS, ROOT / "eval/golden_answers_corrected.json")
+        (RESULTS / "summary.json").write_text(json.dumps(s, indent=2))
+        (RESULTS / "summary.md").write_text(summary.to_markdown(s))
+        print(summary.to_markdown(s))
 
 
 if __name__ == "__main__":
