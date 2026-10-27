@@ -27,8 +27,8 @@ def sentences(text):
 
 
 class Grounding:
-    def __init__(self, chunks, retriever, embedder):
-        self.chunks, self.r, self.emb = chunks, retriever, embedder
+    def __init__(self, chunks, retriever, embedder, n_sentences=5):
+        self.chunks, self.r, self.emb, self.n_sentences = chunks, retriever, embedder, n_sentences
         self.src_text = defaultdict(str)
         for c in chunks:
             self.src_text[c["section"]] += " " + c["text"]
@@ -43,7 +43,8 @@ class Grounding:
         return self._vec_cache[sec]
 
     # ---------- answering ----------
-    def answer(self, question, n_sections=3, n_sentences=2):
+    def answer(self, question, n_sections=3, n_sentences=None):
+        n_sentences = n_sentences or self.n_sentences
         """Pick the source sentences most similar to the question; each keeps its citation."""
         hits = search(self.r, self.chunks, question, k=n_sections)
         cands = [(h["section"], s, rank) for rank, h in enumerate(hits) for s in sentences(h["text"])]

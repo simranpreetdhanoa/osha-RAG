@@ -4,11 +4,11 @@ Corpus: 188 sections, 3728 chunks. Questions: 60.
 
 | system | hit@1 | hit@3 | hit@5 | hit@10 | mrr@10 | ndcg@10 | latency_ms_p50 | latency_ms_p95 |
 |---|---|---|---|---|---|---|---|---|
-| bm25 | 0.8667 | 0.9167 | 0.95 | 0.9833 | 0.9033 | 0.9224 | 1.72 | 4.8 |
-| tfidf | 0.8667 | 0.9333 | 0.9333 | 0.9667 | 0.9019 | 0.9175 | 1.49 | 2.73 |
-| hybrid_rrf | 0.8667 | 0.9167 | 0.95 | 0.9667 | 0.9015 | 0.9174 | 3.69 | 7.04 |
-| dense_lsa | 0.8667 | 0.9333 | 0.9333 | 0.95 | 0.8993 | 0.9118 | 54.39 | 75.57 |
-| hybrid_bm25+dense_lsa | 0.8833 | 0.9333 | 0.95 | 0.95 | 0.9097 | 0.9199 | 57.84 | 69.54 |
+| bm25 | 0.8667 | 0.9167 | 0.95 | 0.9833 | 0.9033 | 0.9224 | 1.28 | 2.24 |
+| tfidf | 0.8667 | 0.9333 | 0.9333 | 0.9667 | 0.9019 | 0.9175 | 1.5 | 2.87 |
+| hybrid_rrf | 0.8667 | 0.9167 | 0.95 | 0.9667 | 0.9015 | 0.9174 | 2.54 | 4.65 |
+| dense_lsa | 0.8667 | 0.9333 | 0.9333 | 0.95 | 0.8993 | 0.9118 | 51.04 | 62.71 |
+| hybrid_bm25+dense_lsa | 0.8833 | 0.9333 | 0.95 | 0.95 | 0.9097 | 0.9199 | 55.58 | 62.06 |
 
 ## Misses at rank 1 (hybrid_bm25+dense_lsa)
 
@@ -23,19 +23,19 @@ Corpus: 188 sections, 3728 chunks. Questions: 60.
 ## Answers + hallucination check
 
 - n: 60
-- cites_correct_section: 0.9
-- semantic_sim_to_gold_section: 0.9
+- cites_correct_section: 0.917
+- semantic_sim_to_gold_section: 0.858
 - flagged_as_hallucination: 0
 
 ### Checker stress test (injected hallucinations)
 
 - false positives on clean answers: 0
-- overall detection: 0.981 of 270
+- overall detection: 0.982 of 281
+- number_swap: 1.0 (n=53)
 - foreign_sentence: 0.967 (n=60)
 - wrong_citation: 0.95 (n=60)
 - fake_citation: 1.0 (n=60)
 - negation: 1.0 (n=48)
-- number_swap: 1.0 (n=42)
 
 ## Scored against golden answers (as_given)
 
@@ -43,8 +43,8 @@ Golden check vs regulation text: 20/60 fully verified, 27/60 quotes verbatim, 17
 
 | answerer | key_fact_recall | answers_with_all_facts | token_f1 | rouge_l | semantic_sim | semantic_sim_random_baseline | context_fact_recall@3 | cites_gold_section |
 |---|---|---|---|---|---|---|---|---|
-| bm25 | 0.331 | 0.1 | 0.264 | 0.216 | 0.71 | 0.049 | 0.686 | 0.883 |
-| hybrid_bm25+dense_lsa | 0.306 | 0.1 | 0.257 | 0.208 | 0.699 | 0.049 | 0.681 | 0.9 |
+| bm25 | 0.425 | 0.217 | 0.187 | 0.151 | 0.702 | 0.053 | 0.686 | 0.917 |
+| hybrid_bm25+dense_lsa | 0.406 | 0.183 | 0.182 | 0.145 | 0.688 | 0.056 | 0.681 | 0.917 |
 
 ## Scored against golden answers (corrected)
 
@@ -52,5 +52,5 @@ Golden check vs regulation text: 24/60 fully verified, 28/60 quotes verbatim, 17
 
 | answerer | key_fact_recall | answers_with_all_facts | token_f1 | rouge_l | semantic_sim | semantic_sim_random_baseline | context_fact_recall@3 | cites_gold_section |
 |---|---|---|---|---|---|---|---|---|
-| bm25 | 0.322 | 0.1 | 0.269 | 0.224 | 0.711 | 0.049 | 0.667 | 0.883 |
-| hybrid_bm25+dense_lsa | 0.3 | 0.1 | 0.264 | 0.221 | 0.701 | 0.05 | 0.661 | 0.9 |
+| bm25 | 0.417 | 0.2 | 0.191 | 0.156 | 0.704 | 0.053 | 0.667 | 0.917 |
+| hybrid_bm25+dense_lsa | 0.397 | 0.183 | 0.185 | 0.15 | 0.689 | 0.056 | 0.661 | 0.917 |

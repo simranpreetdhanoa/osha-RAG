@@ -1,0 +1,62 @@
+{
+  "1": {
+    "n": 60,
+    "key_fact_recall": 0.208,
+    "answers_with_all_facts": 0.05,
+    "token_f1": 0.279,
+    "rouge_l": 0.241,
+    "semantic_sim": 0.703,
+    "semantic_sim_random_baseline": 0.053,
+    "context_fact_recall@3": 0.667,
+    "cites_gold_section": 0.783,
+    "avg_words": 31.5
+  },
+  "2": {
+    "n": 60,
+    "key_fact_recall": 0.322,
+    "answers_with_all_facts": 0.1,
+    "token_f1": 0.269,
+    "rouge_l": 0.224,
+    "semantic_sim": 0.711,
+    "semantic_sim_random_baseline": 0.049,
+    "context_fact_recall@3": 0.667,
+    "cites_gold_section": 0.883,
+    "avg_words": 60.9
+  },
+  "3": {
+    "n": 60,
+    "key_fact_recall": 0.383,
+    "answers_with_all_facts": 0.15,
+    "token_f1": 0.239,
+    "rouge_l": 0.198,
+    "semantic_sim": 0.708,
+    "semantic_sim_random_baseline": 0.051,
+    "context_fact_recall@3": 0.667,
+    "cites_gold_section": 0.883,
+    "avg_words": 87.7
+  },
+  "5": {
+    "n": 60,
+    "key_fact_recall": 0.417,
+    "answers_with_all_facts": 0.2,
+    "token_f1": 0.191,
+    "rouge_l": 0.156,
+    "semantic_sim": 0.704,
+    "semantic_sim_random_baseline": 0.053,
+    "context_fact_recall@3": 0.667,
+    "cites_gold_section": 0.917,
+    "avg_words": 141.9
+  },
+  "8": {
+    "n": 60,
+    "key_fact_recall": 0.472,
+    "answers_with_all_facts": 0.25,
+    "token_f1": 0.151,
+    "rouge_l": 0.12,
+    "semantic_sim": 0.69,
+    "semantic_sim_random_baseline": 0.063,
+    "context_fact_recall@3": 0.667,
+    "cites_gold_section": 0.917,
+    "avg_words": 223.4
+  }
+}

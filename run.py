@@ -28,6 +28,7 @@ def main():
     for name in ("ask", "eval"):
         p = sub.add_parser(name)
         p.add_argument("--embedder", default="lsa", choices=["lsa", "minilm"])
+        p.add_argument("--sentences", type=int, default=5, help="sentences per answer")
     sub.choices["ask"].add_argument("question")
     args = ap.parse_args()
 
@@ -39,7 +40,7 @@ def main():
     chunks = load_chunks(DATA)
     dense = Dense(chunks, args.embedder, cache_dir=DATA)
     hybrid = HybridDense(chunks, dense)
-    g = Grounding(chunks, hybrid, dense.emb)
+    g = Grounding(chunks, hybrid, dense.emb, args.sentences)
 
     if args.cmd == "ask":
         ans = g.answer(args.question)
@@ -53,7 +54,7 @@ def main():
         rep = evaluate(chunks, qs, (BM25, TFIDF, Hybrid, lambda c: dense, lambda c: hybrid))
         rep["grounding"] = evaluate_grounding(g, qs)
         rep["golden"] = {}
-        answerers = {"bm25": Grounding(chunks, BM25(chunks), dense.emb), hybrid.name: g}
+        answerers = {"bm25": Grounding(chunks, BM25(chunks), dense.emb, args.sentences), hybrid.name: g}
         for label, fname in (("as_given", "golden_answers.json"), ("corrected", "golden_answers_corrected.json")):
             if (ROOT / "eval" / fname).exists():
                 gold = json.loads((ROOT / "eval" / fname).read_text())

@@ -43,15 +43,15 @@ python -m pytest tests
 | FAISS dense (LSA) | 0.867 | 0.950 | 0.899 | 54 ms |
 | BM25 + dense hybrid | 0.883 | 0.950 | 0.910 | 58 ms |
 
-**Against golden answers** (`eval/golden_answers_corrected.json`, BM25 answerer): key-fact recall 0.32,
-6/60 answers contain every key fact, token F1 0.27, ROUGE-L 0.22, semantic similarity 0.71
+**Against golden answers** (`eval/golden_answers_corrected.json`, BM25 answerer): key-fact recall 0.42 (5-sentence answers; 0.32 with 2),
+12/60 answers contain every key fact, token F1 0.19, ROUGE-L 0.16, semantic similarity 0.70
 (0.05 for a random golden answer), and 67% of key facts appear in the top-3 retrieved passages.
 
 **Golden answers checked against the regulation:** the model-written golden answers had 3 factual
 errors (Q41, Q47, Q55) and 4 partial errors (Q5, Q22, Q33, Q50); 33 of 60 "verbatim" quotes are not
 in the text. `golden_answers_corrected.json` fixes them; each change has a `review` note.
 
-**Hallucination checker:** 0% false positives on clean answers; 98.1% of 270 injected errors caught.
+**Hallucination checker:** 0% false positives on clean answers; 98.2% of 281 injected errors caught.
 
 **Caveats:** answers are extractive, so the 0% flagged rate measures false alarms, not model
 honesty. Key-fact matching is lenient (all numbers + 60% of words).
