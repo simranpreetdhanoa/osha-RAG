@@ -34,6 +34,18 @@ def _text(el) -> str:
     return WS.sub(" ", "".join(el.itertext())).strip()
 
 
+STRUCT_DIV = re.compile(r"DIV\d$")  # DIV1..DIV9 are title/part/section structure; plain DIV wraps tables
+
+
+def _paras(el) -> list[str]:
+    """One paragraph per element; tables become one paragraph per row with cells joined by ' | '."""
+    rows = el.findall(".//TR")
+    if not rows:
+        return [_text(el)]
+    caption = [_text(c) for c in el.iter("CAPTION", "TTITLE")]
+    return caption + [" | ".join(_text(c) for c in r if c.tag in ("TD", "TH", "ENT", "CHED")) for r in rows]
+
+
 def parse_sections(xml_path: Path) -> list[dict]:
     """Return [{section, heading, paragraphs}] for every section and appendix."""
     root = etree.parse(str(xml_path), etree.XMLParser(recover=True, huge_tree=True)).getroot()
@@ -46,7 +58,7 @@ def parse_sections(xml_path: Path) -> list[dict]:
         m = SECTION_RE.search(num) or SECTION_RE.search(heading)
         if not m:
             continue
-        paras = [_text(c) for c in div if c.tag not in ("HEAD",) and not c.tag.startswith("DIV")]
+        paras = [p for c in div if c.tag != "HEAD" and not STRUCT_DIV.match(c.tag) for p in _paras(c)]
         sections.append({"section": m.group(1), "heading": heading,
                          "is_appendix": div.tag == "DIV9", "paragraphs": [p for p in paras if p]})
     # GovInfo bulk format

@@ -10,6 +10,7 @@ from pathlib import Path
 
 from osha_rag.embed import Dense, HybridDense
 from osha_rag.evaluate import evaluate, to_markdown, write
+from osha_rag.golden import score_answers, verify_golden
 from osha_rag.grounding import Grounding, evaluate_grounding
 from osha_rag.ingest import build_corpus, load_chunks
 from osha_rag.retrieve import BM25, TFIDF, Hybrid
@@ -51,9 +52,20 @@ def main():
         qs = [json.loads(l) for l in (ROOT / "eval/questions.jsonl").read_text().splitlines() if l]
         rep = evaluate(chunks, qs, (BM25, TFIDF, Hybrid, lambda c: dense, lambda c: hybrid))
         rep["grounding"] = evaluate_grounding(g, qs)
+        rep["golden"] = {}
+        answerers = {"bm25": Grounding(chunks, BM25(chunks), dense.emb), hybrid.name: g}
+        for label, fname in (("as_given", "golden_answers.json"), ("corrected", "golden_answers_corrected.json")):
+            if (ROOT / "eval" / fname).exists():
+                gold = json.loads((ROOT / "eval" / fname).read_text())
+                ver = verify_golden(gold, qs, g.src_text)
+                rep["golden"][label] = {"verification": ver, "systems": {
+                    n: score_answers(a, gold, ver, qs) for n, a in answerers.items()}}
         write(rep, RESULTS)
         print(to_markdown(rep))
         print(json.dumps({k: v for k, v in rep["grounding"].items() if k != "per_question"}, indent=2))
+        for label, gr in rep["golden"].items():
+            for n, sc in gr["systems"].items():
+                print(label, n, json.dumps(sc["all_questions"]))
 
 
 if __name__ == "__main__":

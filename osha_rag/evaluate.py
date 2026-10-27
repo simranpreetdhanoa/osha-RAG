@@ -71,6 +71,17 @@ def to_markdown(rep: dict) -> str:
                 f"- overall detection: {g['checker_stress_test']['overall_detection_rate']} "
                 f"of {g['checker_stress_test']['n_injected']}",
                 *(f"- {k}: {v['detection_rate']} (n={v['n']})" for k, v in g["checker_stress_test"]["by_type"].items())]
+    for label, gr in rep.get("golden", {}).items():
+        v = gr["verification"]
+        out += [f"\n## Scored against golden answers ({label})\n",
+                f"Golden check vs regulation text: {sum(x['verified'] for x in v)}/{len(v)} fully verified, "
+                f"{sum(x['quote_verbatim'] for x in v)}/{len(v)} quotes verbatim, "
+                f"{sum(f['in_source'] for x in v for f in x['key_facts'])}/{sum(len(x['key_facts']) for x in v)} key facts found.\n"]
+        cols = ["key_fact_recall", "answers_with_all_facts", "token_f1", "rouge_l", "semantic_sim",
+                "semantic_sim_random_baseline", "context_fact_recall@3", "cites_gold_section"]
+        out += ["| answerer | " + " | ".join(cols) + " |", "|---" * (len(cols) + 1) + "|"]
+        for n, sc in gr["systems"].items():
+            out.append(f"| {n} | " + " | ".join(str(sc["all_questions"][c]) for c in cols) + " |")
     return "\n".join(out) + "\n"
 
 

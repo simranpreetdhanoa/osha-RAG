@@ -1,0 +1,76 @@
+You are an expert on U.S. OSHA General Industry standards (29 CFR Part 1910).
+
+For each question below, write a reference ("golden") answer based ONLY on the cited section of 29 CFR 1910 as currently in force.
+
+Rules:
+- Answer in 1-3 sentences, directly and precisely.
+- Include the exact paragraph citation, e.g. 1910.157(e)(2).
+- List 1-3 "key_facts": short exact facts (numbers, units, frequencies, required items) that a correct answer must contain, worded as they appear in the regulation.
+- Include a short verbatim quote from the regulation that supports the answer.
+- If the cited section does not answer the question, set "answerable": false and explain briefly. Do not guess.
+
+Return ONLY a JSON array, one object per question, in this format:
+[{"id": 1, "answer": "...", "citation": "1910.36(b)(1)", "key_facts": ["..."], "quote": "...", "answerable": true}]
+
+Questions:
+
+1. How many ways out does a workplace need in case of an emergency?  [Section 1910.36: Design and construction requirements for exit routes.]
+2. Do exit signs have to be lit and what color letters are allowed?  [Section 1910.37: Maintenance, safeguards, and operational features for exit routes.]
+3. What must be included in a written emergency action plan?  [Section 1910.38: Emergency action plans.]
+4. What goes into a fire prevention plan for a facility?  [Section 1910.39: Fire prevention plans.]
+5. How often do portable fire extinguishers need to be visually inspected and maintained?  [Section 1910.157: Portable fire extinguishers.]
+6. Requirements for an employee alarm system to warn workers of an emergency  [Section 1910.165: Employee alarm systems.]
+7. What training is required for members of an industrial fire brigade?  [Section 1910.156: Fire brigades.]
+8. What is the maximum spacing between rungs on a fixed ladder?  [Section 1910.23: Ladders.]
+9. How tall does the top rail of a guardrail system need to be?  [Section 1910.29: Fall protection systems and falling object protection—criteria and practices.]
+10. At what height do workers on an unprotected edge need fall protection in general industry?  [Section 1910.28: Duty to have fall protection and falling object protection.]
+11. Who must be trained on fall hazards and when is retraining needed?  [Section 1910.30: Training requirements.]
+12. Floors in work areas must be kept clean and free of slippery spills and hazards  [Section 1910.22: General requirements.]
+13. What strength must an anchorage for a personal fall arrest system support?  [Section 1910.140: Personal fall protection systems.]
+14. Rules for using rope descent systems to clean building windows  [Section 1910.27: Scaffolds and rope descent systems.]
+15. Requirements for powered platforms used for exterior building maintenance  [Section 1910.66: Powered platforms for building maintenance.]
+16. Safety rules for aerial lifts and vehicle-mounted elevating work platforms  [Section 1910.67: Vehicle-mounted elevating and rotating work platforms.]
+17. At what noise level must an employer start a hearing conservation program?  [Section 1910.95: Occupational noise exposure.]
+18. How often do employees need to be fit tested for a tight-fitting respirator?  [Section 1910.134: Respiratory protection.]
+19. Does a worker need a medical evaluation before wearing a respirator?  [Section 1910.134: Respiratory protection.]
+20. Employer must do a workplace hazard assessment and certify it in writing for PPE  [Section 1910.132: General requirements.]
+21. When are safety glasses with side shields or face shields required?  [Section 1910.133: Eye and face protection.]
+22. When do workers have to wear hard hats?  [Section 1910.135: Head protection.]
+23. When is protective footwear like steel toe boots required?  [Section 1910.136: Foot protection.]
+24. Requirements for gloves to protect hands from cuts, chemicals and burns  [Section 1910.138: Hand protection.]
+25. How often must rubber insulating gloves for electrical work be electrically tested?  [Section 1910.137: Electrical protective equipment.]
+26. How often must the energy control procedure be periodically inspected under lockout tagout?  [Section 1910.147: The control of hazardous energy (lockout/tagout).]
+27. Can a tag be used instead of a lock when isolating machine energy?  [Section 1910.147: The control of hazardous energy (lockout/tagout).]
+28. What must be on an entry permit before workers enter a permit-required confined space?  [Section 1910.146: Permit-required confined spaces.]
+29. Duties of the attendant stationed outside a confined space  [Section 1910.146: Permit-required confined spaces.]
+30. How often must a forklift operator's performance be re-evaluated?  [Section 1910.178: Powered industrial trucks.]
+31. Requirements for battery charging areas for electric forklifts  [Section 1910.178: Powered industrial trucks.]
+32. How often should overhead cranes be inspected?  [Section 1910.179: Overhead and gantry cranes.]
+33. When must a wire rope or chain sling be removed from service?  [Section 1910.184: Slings.]
+34. What are the general requirements for guarding the point of operation on machines?  [Section 1910.212: General requirements for all machines.]
+35. What is the maximum gap between a grinding wheel and the work rest?  [Section 1910.215: Abrasive wheel machinery.]
+36. Safety requirements for mechanical power presses and two-hand controls  [Section 1910.217: Mechanical power presses.]
+37. Guarding of belts, pulleys, gears and shafts that transmit power  [Section 1910.219: Mechanical power-transmission apparatus.]
+38. Guards required on table saws and woodworking machinery  [Section 1910.213: Woodworking machinery requirements.]
+39. Guarding requirements for portable power tools like circular saws and grinders  [Section 1910.243: Guarding of portable powered tools.]
+40. When is an emergency eyewash or shower required at the workplace?  [Section 1910.151: Medical services and first aid.]
+41. How many toilets must be provided based on the number of employees?  [Section 1910.141: Sanitation.]
+42. What information must be on a chemical container label and safety data sheet?  [Section 1910.1200: Hazard communication.]
+43. Does an employer need to offer hepatitis B vaccination to workers exposed to blood?  [Section 1910.1030: Bloodborne pathogens.]
+44. Where can I find the permissible exposure limits for air contaminants in the Z-1 table?  [Section 1910.1000: Air contaminants.]
+45. What is the permissible exposure limit for asbestos fibers?  [Section 1910.1001: Asbestos.]
+46. Exposure monitoring and medical surveillance for benzene  [Section 1910.1028: Benzene.]
+47. What blood lead level requires medical removal of a worker?  [Section 1910.1025: Lead.]
+48. Permissible exposure limit for respirable crystalline silica dust  [Section 1910.1053: Respirable crystalline silica.]
+49. How long must employee exposure and medical records be kept?  [Section 1910.1020: Access to employee exposure and medical records.]
+50. How much clear working space is required in front of electrical panels?  [Section 1910.303: General.]
+51. Grounding requirements for cord and plug connected equipment  [Section 1910.304: Wiring design and protection.]
+52. Who is allowed to work on energized electrical parts and how must circuits be deenergized?  [Section 1910.333: Selection and use of work practices.]
+53. Fire prevention precautions before welding or cutting near combustibles  [Section 1910.252: General requirements.]
+54. How far apart must oxygen cylinders be stored from fuel gas cylinders?  [Section 1910.253: Oxygen-fuel gas welding and cutting.]
+55. Requirements for flammable liquid storage cabinets  [Section 1910.106: Flammable liquids.]
+56. Ventilation and fire rules for spray painting booths  [Section 1910.107: Spray finishing using flammable and combustible materials.]
+57. Process hazard analysis for facilities handling highly hazardous chemicals  [Section 1910.119: Process safety management of highly hazardous chemicals.]
+58. Training hours required for hazardous waste site workers  [Section 1910.120: Hazardous waste operations and emergency response.]
+59. What color must be used to mark fire protection equipment and danger?  [Section 1910.144: Safety color code for marking physical hazards.]
+60. When should danger tags and caution signs be used?  [Section 1910.145: Specifications for accident prevention signs and tags.]

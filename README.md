@@ -38,15 +38,20 @@ python -m pytest tests
 
 | Method | Hit@1 | Hit@10 | MRR@10 | p50 latency |
 |---|---|---|---|---|
-| BM25 | 0.883 | 0.983 | 0.912 | 2 ms |
-| TF-IDF | 0.867 | 0.967 | 0.902 | 2 ms |
-| FAISS dense (LSA) | 0.833 | 0.950 | 0.875 | 59 ms |
-| BM25 + dense hybrid | 0.867 | 0.950 | 0.901 | 58 ms |
+| BM25 | 0.867 | 0.983 | 0.903 | 2 ms |
+| TF-IDF | 0.867 | 0.967 | 0.902 | 1 ms |
+| FAISS dense (LSA) | 0.867 | 0.950 | 0.899 | 54 ms |
+| BM25 + dense hybrid | 0.883 | 0.950 | 0.910 | 58 ms |
 
-Hallucination checker: 0% false positives on clean answers; 98.5% of 273 injected errors caught.
-Answers: 54/60 have at least one sentence from the correct section (32/60 both sentences).
-Full details in `results/report.md` and `results/metrics.json`.
+**Against golden answers** (`eval/golden_answers_corrected.json`, BM25 answerer): key-fact recall 0.32,
+6/60 answers contain every key fact, token F1 0.27, ROUGE-L 0.22, semantic similarity 0.71
+(0.05 for a random golden answer), and 67% of key facts appear in the top-3 retrieved passages.
+
+**Golden answers checked against the regulation:** the model-written golden answers had 3 factual
+errors (Q41, Q47, Q55) and 4 partial errors (Q5, Q22, Q33, Q50); 33 of 60 "verbatim" quotes are not
+in the text. `golden_answers_corrected.json` fixes them; each change has a `review` note.
+
+**Hallucination checker:** 0% false positives on clean answers; 98.1% of 270 injected errors caught.
 
 **Caveats:** answers are extractive, so the 0% flagged rate measures false alarms, not model
-honesty. The "similarity to gold section" metric is inflated because answers are copied from the
-corpus. There are no reference answers yet, so answer correctness is only measured at section level.
+honesty. Key-fact matching is lenient (all numbers + 60% of words).

@@ -1,0 +1,727 @@
+[
+ {
+  "id": 1,
+  "answer": "The employer must provide at least two exit routes, unless the number of employees, size, occupancy, or arrangement requires more. The routes must be located as far apart as practical.",
+  "citation": "1910.36(b)(1)",
+  "key_facts": [
+   "at least two exit routes",
+   "as far apart as practical",
+   "more than two may be required"
+  ],
+  "quote": "At least two exit routes must be available in a workplace.",
+  "answerable": true
+ },
+ {
+  "id": 2,
+  "answer": "Yes. Exit signs must be illuminated and clearly visible. Section 1910.37 does not prescribe a specific letter color; it requires a sign reading “EXIT” and suitable illumination.",
+  "citation": "1910.37(b)(6)-(7)",
+  "key_facts": [
+   "sign reading “EXIT”",
+   "adequately illuminated",
+   "no specific letter color stated"
+  ],
+  "quote": "Each exit must be clearly visible and marked by a sign reading “Exit.”",
+  "answerable": true
+ },
+ {
+  "id": 3,
+  "answer": "A written emergency action plan must include emergency-reporting procedures; evacuation procedures and routes; procedures for employees who remain for critical operations; accounting for employees after evacuation; rescue and medical duties; and contact information for responsible persons.",
+  "citation": "1910.38(c)(1)-(6)",
+  "key_facts": [
+   "procedures for reporting a fire or other emergency",
+   "procedures to account for all employees",
+   "rescue and medical duties"
+  ],
+  "quote": "Procedures for reporting a fire or other emergency",
+  "answerable": true
+ },
+ {
+  "id": 4,
+  "answer": "A fire prevention plan must identify major fire hazards, hazardous-material handling and storage procedures, ignition-source controls, combustible-waste procedures, maintenance of heat-producing equipment, and responsible personnel. The plan must be kept in writing and made available to employees.",
+  "citation": "1910.39(c)(1)-(4), 1910.39(b)",
+  "key_facts": [
+   "major fire hazards",
+   "procedures for controlling accumulations of flammable and combustible waste",
+   "names or job titles of personnel responsible"
+  ],
+  "quote": "A fire prevention plan must be in writing, be kept in the workplace, and be made available to employees",
+  "answerable": true
+ },
+ {
+  "id": 5,
+  "answer": "Portable fire extinguishers must be visually inspected monthly and subjected to an annual maintenance check.",
+  "citation": "1910.157(e)(2)-(3)",
+  "key_facts": [
+   "visually inspected monthly",
+   "annual maintenance check"
+  ],
+  "quote": "shall be visually inspected monthly",
+  "answerable": true,
+  "review": "MINOR: 'maintained whenever an inspection indicates the need' is not in 1910.157(e)."
+ },
+ {
+  "id": 6,
+  "answer": "An employee alarm system must provide warning for required emergency action, be distinctive and recognizable, be perceived above ambient noise or light levels, and notify employees exposed to the emergency. The system must be maintained and tested as required by the standard.",
+  "citation": "1910.165(b)(1)-(5)",
+  "key_facts": [
+   "provide warning for necessary emergency action",
+   "distinctive and recognizable",
+   "perceived above ambient noise or light levels"
+  ],
+  "quote": "The employee alarm system must provide warning for necessary emergency action",
+  "answerable": true
+ },
+ {
+  "id": 7,
+  "answer": "Fire-brigade members must receive training before participating in emergency activities, with training commensurate with their duties and responsibilities. Members involved in interior structural firefighting must receive initial and at least annual training.",
+  "citation": "1910.156(c)(1), 1910.156(c)(4)",
+  "key_facts": [
+   "before participating in emergency activities",
+   "training commensurate with duties and responsibilities",
+   "initial and at least annual training"
+  ],
+  "quote": "The employer shall provide training and education for fire brigade members commensurate with those duties and responsibilities",
+  "answerable": true
+ },
+ {
+  "id": 8,
+  "answer": "The distance between rungs on a fixed ladder must be uniform and between 10 and 14 inches. The maximum spacing is therefore 14 inches.",
+  "citation": "1910.23(b)(2)",
+  "key_facts": [
+   "uniformly spaced",
+   "10 inches minimum",
+   "14 inches maximum"
+  ],
+  "quote": "The distance between rungs, cleats, and steps does not exceed 14 inches and is uniform throughout the length of the ladder",
+  "answerable": true
+ },
+ {
+  "id": 9,
+  "answer": "The top edge of a guardrail system must be 42 inches, plus or minus 3 inches, above the working surface.",
+  "citation": "1910.29(b)(1)",
+  "key_facts": [
+   "42 inches",
+   "plus or minus 3 inches",
+   "above the working surface"
+  ],
+  "quote": "The height of the top edge of the top rails, or equivalent guardrail system members, are 42 inches, plus or minus 3 inches",
+  "answerable": true
+ },
+ {
+  "id": 10,
+  "answer": "In general industry, fall protection is required when employees are exposed to an unprotected side or edge that is 4 feet or more above a lower level, subject to the exceptions in the standard.",
+  "citation": "1910.28(b)(1)(i)",
+  "key_facts": [
+   "4 feet or more",
+   "unprotected side or edge",
+   "above a lower level"
+  ],
+  "quote": "The employer must ensure that each employee on a walking-working surface with an unprotected side or edge that is 4 feet or more above a lower level is protected",
+  "answerable": true
+ },
+ {
+  "id": 11,
+  "answer": "Employees exposed to fall hazards, employees using fall-protection systems, and employees performing related work must be trained by a qualified person. Retraining is required when employees lack the required understanding or skill, or when workplace, equipment, or fall-protection changes create new hazards.",
+  "citation": "1910.30(a)-(b)",
+  "key_facts": [
+   "trained by a qualified person",
+   "before exposure to a fall hazard",
+   "retraining when changes or deficiencies occur"
+  ],
+  "quote": "The employer must ensure that each employee is trained by a qualified person",
+  "answerable": true
+ },
+ {
+  "id": 12,
+  "answer": "Walking-working surfaces must be maintained in a clean, orderly, and sanitary condition and free of hazards such as spills, leaks, loose boards, corrosion, snow, and ice.",
+  "citation": "1910.22(a)(1)-(2)",
+  "key_facts": [
+   "clean, orderly, and sanitary",
+   "free of hazards",
+   "promptly and properly correct or guard hazards"
+  ],
+  "quote": "The employer must ensure that each walking-working surface is maintained in a clean, orderly, and sanitary condition",
+  "answerable": true
+ },
+ {
+  "id": 13,
+  "answer": "An anchorage for a personal fall-arrest system must support at least 5,000 pounds for each employee attached, or be designed, installed, and used under the supervision of a qualified person as part of a complete system with a safety factor of at least 2.",
+  "citation": "1910.140(c)(13)",
+  "key_facts": [
+   "5,000 pounds for each employee attached",
+   "qualified person",
+   "safety factor of at least 2"
+  ],
+  "quote": "Capable of supporting at least 5,000 pounds for each employee attached",
+  "answerable": true
+ },
+ {
+  "id": 14,
+  "answer": "A rope descent system may be used only when the building owner provides written assurance that each anchorage has been identified, tested, certified, and maintained. Employees must use required personal fall protection, inspect the system before use, and receive training.",
+  "citation": "1910.27(b)(1)-(3), 1910.27(c)-(d)",
+  "key_facts": [
+   "written assurance from the building owner",
+   "inspect before each use",
+   "personal fall arrest system"
+  ],
+  "quote": "The building owner must inform the employer in writing that the building has identified, tested, certified, and maintained each anchorage",
+  "answerable": true
+ },
+ {
+  "id": 15,
+  "answer": "Powered platforms for exterior building maintenance must meet requirements for design, suspension, inspection, maintenance, emergency operation, guardrails, personal fall protection, and trained operators. The equipment must be inspected and maintained according to the standard and manufacturer requirements.",
+  "citation": "1910.66(c)-(j)",
+  "key_facts": [
+   "inspection and maintenance",
+   "emergency devices and procedures",
+   "guardrails and personal fall protection"
+  ],
+  "quote": "The employer shall ensure that all powered platforms are inspected, maintained, and operated in accordance with this section",
+  "answerable": true
+ },
+ {
+  "id": 16,
+  "answer": "Aerial lifts and vehicle-mounted elevating work platforms must be inspected before use, operated only by trained and authorized employees, and used according to manufacturer instructions. Employees must use required platform guarding and personal fall protection and must not climb or stand on rails.",
+  "citation": "1910.67(b)(1), 1910.67(c)(2)",
+  "key_facts": [
+   "inspected before use",
+   "trained and authorized operators",
+   "do not climb or stand on guardrails"
+  ],
+  "quote": "Only trained persons shall operate an aerial lift",
+  "answerable": true
+ },
+ {
+  "id": 17,
+  "answer": "A hearing conservation program is required when employee noise exposure reaches an 8-hour time-weighted average of 85 dBA, or an equivalent dose of 50 percent.",
+  "citation": "1910.95(c)(1)",
+  "key_facts": [
+   "85 dBA",
+   "8-hour time-weighted average",
+   "50 percent dose"
+  ],
+  "quote": "The employer shall administer a continuing, effective hearing conservation program ... at or above an 8-hour time-weighted average of 85 decibels",
+  "answerable": true
+ },
+ {
+  "id": 18,
+  "answer": "Employees using tight-fitting respirators must be fit tested before initial use, whenever the respirator facepiece changes, and at least annually thereafter.",
+  "citation": "1910.134(f)(2)",
+  "key_facts": [
+   "before initial use",
+   "whenever the employee changes respirator models, styles, or sizes",
+   "at least annually thereafter"
+  ],
+  "quote": "The employee must be fit tested ... prior to initial use ... and at least annually thereafter",
+  "answerable": true
+ },
+ {
+  "id": 19,
+  "answer": "Yes. The employer must provide a medical evaluation before the employee is fit tested or required to use a respirator in the workplace.",
+  "citation": "1910.134(e)(1)",
+  "key_facts": [
+   "medical evaluation",
+   "before fit testing",
+   "before required workplace use"
+  ],
+  "quote": "Before the employee is fit tested or required to use the respirator in the workplace",
+  "answerable": true
+ },
+ {
+  "id": 20,
+  "answer": "The employer must assess the workplace to determine whether hazards require PPE and must verify the assessment in writing. The certification must identify the workplace evaluated, the date of the assessment, and the person certifying it.",
+  "citation": "1910.132(d)(1), 1910.132(d)(2)",
+  "key_facts": [
+   "workplace hazard assessment",
+   "written certification",
+   "identity of the person certifying the assessment"
+  ],
+  "quote": "The employer shall verify that the required workplace hazard assessment has been performed through a written certification",
+  "answerable": true
+ },
+ {
+  "id": 21,
+  "answer": "Employees must use eye or face protection when exposed to hazards from flying particles, molten metal, liquid chemicals, acids or caustic liquids, chemical gases or vapors, or potentially harmful light radiation. Side shields are required when there is a hazard from flying objects.",
+  "citation": "1910.133(a)(1)-(2)",
+  "key_facts": [
+   "flying particles",
+   "liquid chemicals, acids, or caustic liquids",
+   "side protection"
+  ],
+  "quote": "The employer shall ensure that each affected employee uses equipment with side protection",
+  "answerable": true
+ },
+ {
+  "id": 22,
+  "answer": "A protective helmet is required where there is a potential for injury to the head from falling objects, and a helmet designed to reduce electrical shock hazard is required near exposed electrical conductors which could contact the head.",
+  "citation": "1910.135(a)(1)-(2)",
+  "key_facts": [
+   "falling objects",
+   "reduce electrical shock hazard",
+   "exposed electrical conductors"
+  ],
+  "quote": "wears a protective helmet when working in areas where there is a potential for injury to the head from falling objects",
+  "answerable": true,
+  "review": "PARTLY WRONG: 'flying objects' is not in 1910.135."
+ },
+ {
+  "id": 23,
+  "answer": "Protective footwear is required where there is a danger of foot injuries from falling or rolling objects, objects piercing the sole, or electrical hazards. The footwear must meet the applicable consensus standard or be equally effective.",
+  "citation": "1910.136(a)",
+  "key_facts": [
+   "falling or rolling objects",
+   "objects piercing the sole",
+   "electrical hazards"
+  ],
+  "quote": "The employer shall ensure that each affected employee uses protective footwear",
+  "answerable": true
+ },
+ {
+  "id": 24,
+  "answer": "Employers must select and require appropriate hand protection whenever employees’ hands are exposed to hazards such as skin absorption, cuts, lacerations, abrasions, punctures, chemical burns, thermal burns, or harmful temperature extremes.",
+  "citation": "1910.138(a)-(b)",
+  "key_facts": [
+   "cuts, lacerations, and abrasions",
+   "chemical burns",
+   "thermal burns"
+  ],
+  "quote": "Employers shall select and require employees to use appropriate hand protection",
+  "answerable": true
+ },
+ {
+  "id": 25,
+  "answer": "Rubber insulating gloves must be electrically tested before first issue and every 6 months thereafter. They must also be retested after repair and whenever there is reason to suspect their insulating ability has been affected.",
+  "citation": "1910.137(b)(2)(vii)",
+  "key_facts": [
+   "before first issue",
+   "every 6 months thereafter",
+   "after repair or suspected damage"
+  ],
+  "quote": "Electrical testing shall be performed before first issue and every 6 months thereafter",
+  "answerable": true
+ },
+ {
+  "id": 26,
+  "answer": "Each energy-control procedure must be inspected at least annually to ensure that it complies with the standard and that the procedure is being followed.",
+  "citation": "1910.147(c)(6)(i)",
+  "key_facts": [
+   "at least annually",
+   "periodic inspection",
+   "energy-control procedure"
+  ],
+  "quote": "The periodic inspection shall be performed at least annually",
+  "answerable": true
+ },
+ {
+  "id": 27,
+  "answer": "A tag may replace a lock only when the energy-isolating device cannot accept a lock. When tagout is used, the employer must provide employee protection equivalent to lockout through additional safety measures.",
+  "citation": "1910.147(c)(2)(i), 1910.147(c)(3)(ii)",
+  "key_facts": [
+   "energy-isolating device is not capable of being locked out",
+   "tagout system",
+   "employee protection equivalent to lockout"
+  ],
+  "quote": "When a tagout device is used on an energy isolating device which is capable of being locked out",
+  "answerable": true
+ },
+ {
+  "id": 28,
+  "answer": "Before entry, the permit must identify the space, purpose, duration, authorized entrants, attendants, entry supervisor, hazards, acceptable entry conditions, test results, rescue procedures, communication procedures, required equipment, and other applicable permits.",
+  "citation": "1910.146(e)(1), 1910.146(f)(1)-(14)",
+  "key_facts": [
+   "acceptable entry conditions",
+   "initial and periodic test results",
+   "rescue and emergency services"
+  ],
+  "quote": "Before entry is authorized, the completed permit shall be made available for review at the time of entry",
+  "answerable": true
+ },
+ {
+  "id": 29,
+  "answer": "The attendant must remain outside the permit space, continuously monitor entrants, communicate with them, order evacuation when required, summon rescue services, prevent unauthorized entry, and perform no duty that interferes with monitoring.",
+  "citation": "1910.146(i)(1)-(7)",
+  "key_facts": [
+   "remain outside the permit space",
+   "continuously maintain an accurate count of entrants",
+   "summon rescue and other emergency services"
+  ],
+  "quote": "Knows the hazards that may be faced during entry, including information on the mode, signs or symptoms, and consequences of the exposure",
+  "answerable": true
+ },
+ {
+  "id": 30,
+  "answer": "Each powered-industrial-truck operator’s performance must be evaluated at least once every 3 years. Additional evaluation is required when an operator is assigned a different truck type or workplace condition changes.",
+  "citation": "1910.178(l)(4)",
+  "key_facts": [
+   "at least once every 3 years",
+   "operator performance",
+   "additional training or evaluation when conditions change"
+  ],
+  "quote": "The employer shall ensure that each operator has been evaluated at least once every three years",
+  "answerable": true
+ },
+ {
+  "id": 31,
+  "answer": "Battery-charging areas must be designated, protected from damage, adequately ventilated, provided with fire-protection equipment, and equipped for flushing and neutralizing spilled electrolyte. Smoking and open flames are prohibited, and proper PPE must be used.",
+  "citation": "1910.178(g)(1)-(8)",
+  "key_facts": [
+   "designated battery-charging areas",
+   "adequate ventilation",
+   "no smoking or open flames"
+  ],
+  "quote": "Battery charging installations shall be located in areas designated for that purpose",
+  "answerable": true
+ },
+ {
+  "id": 32,
+  "answer": "Overhead cranes require frequent inspections at daily-to-monthly intervals, depending on use and service conditions, and periodic inspections at intervals of 1 to 12 months, depending on activity and environment.",
+  "citation": "1910.179(j)(1)-(2)",
+  "key_facts": [
+   "daily to monthly",
+   "1 to 12 months",
+   "frequent and periodic inspections"
+  ],
+  "quote": "Frequent inspection—Daily to monthly intervals",
+  "answerable": true
+ },
+ {
+  "id": 33,
+  "answer": "Wire rope slings must be immediately removed from service for ten randomly distributed broken wires in one rope lay (or five in one strand), wear of one-third the outside wire diameter, kinking, crushing or bird caging, heat damage, damaged end attachments, opened or twisted hooks, or corrosion. Alloy steel chain slings with cracked or deformed links or components must be removed from service.",
+  "citation": "1910.184(f)(5), 1910.184(e)(9)",
+  "key_facts": [
+   "ten randomly distributed broken wires in one rope lay",
+   "kinking, crushing, bird caging",
+   "cracked or deformed master links"
+  ],
+  "quote": "Wire rope slings shall be immediately removed from service if any of the following conditions are present",
+  "answerable": true,
+  "review": "PARTLY WRONG: cited the synthetic web sling paragraph for a wire rope/chain question and mixed in criteria (illegible identification) that are not removal criteria."
+ },
+ {
+  "id": 34,
+  "answer": "Machines must be guarded to protect employees from point-of-operation hazards, ingoing nip points, rotating parts, flying chips, and sparks. Guards must be attached where possible and must not create an accident hazard.",
+  "citation": "1910.212(a)(1)-(2)",
+  "key_facts": [
+   "point of operation",
+   "ingoing nip points",
+   "guards shall not create an accident hazard"
+  ],
+  "quote": "One or more methods of machine guarding shall be provided to protect the operator and other employees in the machine area",
+  "answerable": true
+ },
+ {
+  "id": 35,
+  "answer": "The work-rest opening on a grinding machine must not exceed 1/8 inch.",
+  "citation": "1910.215(a)(4)",
+  "key_facts": [
+   "1/8 inch maximum",
+   "work rest",
+   "grinding wheel"
+  ],
+  "quote": "Work rests shall be kept adjusted closely to the wheel with a maximum opening of one-eighth inch",
+  "answerable": true
+ },
+ {
+  "id": 36,
+  "answer": "Mechanical power presses must have point-of-operation safeguarding, proper controls, anti-repeat protection, and inspection and maintenance procedures. Two-hand controls must require concurrent operation and be located so the operator cannot reach the danger zone during the closing cycle.",
+  "citation": "1910.217(c)(1), 1910.217(c)(3)",
+  "key_facts": [
+   "point-of-operation safeguarding",
+   "concurrent operation",
+   "prevent the operator from reaching the danger zone"
+  ],
+  "quote": "The employer shall provide and ensure the use of point-of-operation devices",
+  "answerable": true
+ },
+ {
+  "id": 37,
+  "answer": "Exposed belts, pulleys, gears, sprockets, chains, shafts, flywheels, and other power-transmission parts must be guarded when employees could contact them. Guards must prevent contact with moving parts and be securely attached.",
+  "citation": "1910.219(d), 1910.219(e), 1910.219(i)",
+  "key_facts": [
+   "belts and pulleys",
+   "gears and sprockets",
+   "shafts and projecting keys or set screws"
+  ],
+  "quote": "All belts, pulleys, chains, and gears shall be guarded",
+  "answerable": true
+ },
+ {
+  "id": 38,
+  "answer": "Woodworking machinery must have guards that protect employees from points of operation, rotating parts, flying chips, and kickbacks. Table saws require an upper hood guard, a spreader, and anti-kickback devices where specified.",
+  "citation": "1910.213(c)(1), 1910.213(h)(1)-(2)",
+  "key_facts": [
+   "upper hood guard",
+   "spreader",
+   "anti-kickback devices"
+  ],
+  "quote": "Each circular rip saw shall be guarded by a hood which shall cover the portion of the saw above the table",
+  "answerable": true
+ },
+ {
+  "id": 39,
+  "answer": "Portable powered tools must have required guards installed and maintained. Circular saws require upper and lower guards, and portable abrasive wheels require suitable guards; employees may not remove or bypass required guards.",
+  "citation": "1910.243(a)(1), 1910.243(c)(1)",
+  "key_facts": [
+   "upper and lower guards on circular saws",
+   "guards shall be used",
+   "portable abrasive wheels"
+  ],
+  "quote": "All portable, power-driven circular saws shall be equipped with guards above and below the base plate or shoe",
+  "answerable": true
+ },
+ {
+  "id": 40,
+  "answer": "Where employees may be exposed to injurious corrosive materials, suitable facilities for quick drenching or flushing of the eyes and body must be provided within the work area for immediate emergency use.",
+  "citation": "1910.151(c)",
+  "key_facts": [
+   "injurious corrosive materials",
+   "quick drenching or flushing of the eyes and body",
+   "within the work area"
+  ],
+  "quote": "Suitable facilities for quick drenching or flushing of the eyes and body shall be provided within the work area",
+  "answerable": true
+ },
+ {
+  "id": 41,
+  "answer": "Table J-1: 1 water closet for 1 to 15 employees, 2 for 16 to 35, 3 for 36 to 55, 4 for 56 to 80, 5 for 81 to 110, 6 for 111 to 150, and over 150 employees 1 additional fixture for each additional 40 employees.",
+  "citation": "1910.141(c)(1)(i), Table J-1",
+  "key_facts": [
+   "1 to 15 employees 1",
+   "111 to 150 employees 6",
+   "1 additional fixture for each additional 40 employees"
+  ],
+  "quote": "1 additional fixture for each additional 40 employees",
+  "answerable": true,
+  "review": "WRONG: omitted the 111-150 row (6 fixtures) and said 'over 110' instead of over 150."
+ },
+ {
+  "id": 42,
+  "answer": "A shipped chemical label must include the product identifier, signal word, hazard statements, pictograms, precautionary statements, and supplier identification. An SDS must use the required 16-section format and include the information specified in Appendix D.",
+  "citation": "1910.1200(f)(1), 1910.1200(g)(2), Appendix C, Appendix D",
+  "key_facts": [
+   "product identifier",
+   "signal word and hazard statements",
+   "16-section safety data sheet"
+  ],
+  "quote": "Each label shall include product identifier; signal word; hazard statement(s); pictogram(s); precautionary statement(s); and the name, address, and telephone number of the chemical manufacturer",
+  "answerable": true
+ },
+ {
+  "id": 43,
+  "answer": "Yes. Employers must make the hepatitis B vaccine and vaccination series available at no cost to employees with occupational exposure, generally within 10 working days of initial assignment, unless an exception applies.",
+  "citation": "1910.1030(f)(2)(i)",
+  "key_facts": [
+   "hepatitis B vaccine and vaccination series",
+   "no cost to the employee",
+   "within 10 working days of initial assignment"
+  ],
+  "quote": "The hepatitis B vaccination and vaccination series shall be made available at no cost to the employee",
+  "answerable": true
+ },
+ {
+  "id": 44,
+  "answer": "The permissible exposure limits for listed air contaminants are found in Table Z-1 of 1910.1000. Tables Z-2 and Z-3 contain additional substance-specific limits.",
+  "citation": "1910.1000(a)(1), Table Z-1",
+  "key_facts": [
+   "Table Z-1",
+   "permissible exposure limits",
+   "8-hour time-weighted average, ceiling, and peak limits where listed"
+  ],
+  "quote": "Table Z-1—Limits for Air Contaminants",
+  "answerable": true
+ },
+ {
+  "id": 45,
+  "answer": "The asbestos permissible exposure limit is 0.1 fiber per cubic centimeter of air as an 8-hour time-weighted average. The excursion limit is 1.0 fiber per cubic centimeter over 30 minutes.",
+  "citation": "1910.1001(c)(1)-(2)",
+  "key_facts": [
+   "0.1 fiber/cm³ as an 8-hour TWA",
+   "1.0 fiber/cm³",
+   "30-minute excursion limit"
+  ],
+  "quote": "The employer shall ensure that no employee is exposed to an airborne concentration of asbestos in excess of 0.1 fiber per cubic centimeter of air as an eight-hour time-weighted average",
+  "answerable": true
+ },
+ {
+  "id": 46,
+  "answer": "For benzene, the permissible exposure limit is 1 ppm as an 8-hour TWA and 5 ppm as a 15-minute STEL. Exposure monitoring and medical surveillance are required when the applicable action levels, exposure durations, or job categories in the standard are met.",
+  "citation": "1910.1028(c)(1), 1910.1028(d), 1910.1028(i)",
+  "key_facts": [
+   "1 ppm 8-hour TWA",
+   "5 ppm 15-minute STEL",
+   "exposure monitoring and medical surveillance"
+  ],
+  "quote": "The employer shall assure that no employee is exposed to an airborne concentration of benzene in excess of 1 ppm as an 8-hour time-weighted average",
+  "answerable": true
+ },
+ {
+  "id": 47,
+  "answer": "Removal is required when a periodic and a follow-up blood test both show a blood lead level at or above 60 µg/100 g, or when the average of the last three tests (or of all tests over the previous six months, whichever is longer) is at or above 50 µg/100 g.",
+  "citation": "1910.1025(k)(1)(i)(A)-(B)",
+  "key_facts": [
+   "60 µg/100 g",
+   "average of the last three blood sampling tests",
+   "50 µg/100 g"
+  ],
+  "quote": "indicate that the employee's blood lead level is at or above 60 µg/100 g of whole blood",
+  "answerable": true,
+  "review": "WRONG: the periodic + follow-up trigger is 60 µg/100 g, not 50; 50 applies to the average of the last three tests. Units are µg/100 g, not µg/dL."
+ },
+ {
+  "id": 48,
+  "answer": "The permissible exposure limit for respirable crystalline silica is 50 µg/m³ as an 8-hour TWA. The action level is 25 µg/m³ as an 8-hour TWA.",
+  "citation": "1910.1053(c)",
+  "key_facts": [
+   "50 µg/m³",
+   "8-hour TWA",
+   "25 µg/m³ action level"
+  ],
+  "quote": "The employer shall ensure that no employee is exposed to an airborne concentration of respirable crystalline silica in excess of 50 μg/m3, calculated as an 8-hour TWA",
+  "answerable": true
+ },
+ {
+  "id": 49,
+  "answer": "Employee exposure records must generally be maintained for 30 years. Employee medical records must generally be maintained for the duration of employment plus 30 years, subject to the exceptions in the standard.",
+  "citation": "1910.1020(d)(1)(i)-(ii)",
+  "key_facts": [
+   "30 years",
+   "duration of employment plus 30 years",
+   "exposure and medical records"
+  ],
+  "quote": "Exposure records shall be preserved and maintained for at least thirty (30) years",
+  "answerable": true
+ },
+ {
+  "id": 50,
+  "answer": "Working space must be at least the width of the equipment or 30 inches, with depth per Table S-1 (3 to 4 feet depending on voltage and condition). Minimum headroom is 6.5 ft for installations built on or after August 13, 2007 (6.25 ft for older installations).",
+  "citation": "1910.303(g)(1)(i), Table S-1",
+  "key_facts": [
+   "30 in.",
+   "1.98 m (6.5 ft)",
+   "1.91 m (6.25 ft)"
+  ],
+  "quote": "The width of working space in front of the electric equipment shall be the width of the equipment or 30 inches, whichever is greater",
+  "answerable": true,
+  "review": "INCOMPLETE: 6 ft 6 in headroom applies only to installations built on or after Aug 13, 2007."
+ },
+ {
+  "id": 51,
+  "answer": "Cord-and-plug equipment must have an approved grounding method, an effective ground-fault current path, and a grounding-type receptacle where required. Grounding prongs may not be removed, and equipment-grounding conductors may not be interrupted.",
+  "citation": "1910.304(b)(1), 1910.304(b)(2)",
+  "key_facts": [
+   "effective ground-fault current path",
+   "grounding-type receptacle",
+   "grounding prong not removed"
+  ],
+  "quote": "The path to ground from circuits, equipment, and enclosures shall be permanent, continuous, and effective",
+  "answerable": true
+ },
+ {
+  "id": 52,
+  "answer": "Only qualified persons may work on exposed energized parts. Circuits must be deenergized before work when possible, locked or tagged out, and verified deenergized by a qualified person; energized work is allowed only when permitted by the standard.",
+  "citation": "1910.333(a), 1910.333(b)(2), 1910.333(b)(2)(iv)",
+  "key_facts": [
+   "qualified persons",
+   "deenergized before work",
+   "lockout or tagout and verification"
+  ],
+  "quote": "Live parts to which an employee will be exposed shall be deenergized before the employee works on or near them",
+  "answerable": true
+ },
+ {
+  "id": 53,
+  "answer": "Before welding or cutting near combustibles, remove or protect combustibles within 35 feet, inspect the opposite side of walls and floors, provide suitable fire extinguishing equipment, and assign a fire watch when required.",
+  "citation": "1910.252(a)(2)(iv), 1910.252(a)(2)(xv)",
+  "key_facts": [
+   "35 feet",
+   "fire extinguishing equipment",
+   "fire watch"
+  ],
+  "quote": "Combustible material shall be relocated at least 35 feet horizontally from the work site",
+  "answerable": true
+ },
+ {
+  "id": 54,
+  "answer": "Oxygen cylinders must be stored at least 20 feet from fuel-gas cylinders or separated by a noncombustible barrier at least 5 feet high with a fire-resistance rating of at least one-half hour.",
+  "citation": "1910.253(b)(4)(iii)",
+  "key_facts": [
+   "20 feet",
+   "5 feet high barrier",
+   "one-half-hour fire-resistance rating"
+  ],
+  "quote": "They shall be separated by a minimum distance of 20 feet or by a noncombustible barrier at least 5 feet high",
+  "answerable": true
+ },
+ {
+  "id": 55,
+  "answer": "Not more than 60 gallons of Category 1, 2, or 3 flammable liquids, nor more than 120 gallons of Category 4 flammable liquids, may be stored in a storage cabinet.",
+  "citation": "1910.106(d)(3)(i)",
+  "key_facts": [
+   "60 gallons of Category 1, 2, or 3 flammable liquids",
+   "120 gallons of Category 4 flammable liquids"
+  ],
+  "quote": "Not more than 60 gallons of Category 1, 2, or 3 flammable liquids, nor more than 120 gallons of Category 4 flammable liquids may be stored in a storage cabinet",
+  "answerable": true,
+  "review": "WRONG: there is no 120-gallon total; 120 gallons is the limit for Category 4 only. Golden quote does not exist in the regulation."
+ },
+ {
+  "id": 56,
+  "answer": "Spray-finishing booths must be constructed of noncombustible materials, adequately ventilated, properly electrically classified, and protected against ignition sources. Exhaust systems, filters, housekeeping, flammable-liquid storage, and fire protection must meet the standard’s requirements.",
+  "citation": "1910.107(b)(1), 1910.107(c), 1910.107(d), 1910.107(g)",
+  "key_facts": [
+   "noncombustible construction",
+   "adequate ventilation",
+   "ignition sources prohibited or controlled"
+  ],
+  "quote": "Spray booths shall be substantially constructed of steel or other approved noncombustible material",
+  "answerable": true
+ },
+ {
+  "id": 57,
+  "answer": "A process hazard analysis must identify process hazards, previous incidents, engineering and administrative controls, consequences of control failure, facility siting, human factors, and qualitative evaluation of safety and health effects. The PHA must be revalidated at least every 5 years.",
+  "citation": "1910.119(e)(3), 1910.119(e)(6)",
+  "key_facts": [
+   "process hazards",
+   "human factors",
+   "revalidated at least every 5 years"
+  ],
+  "quote": "At least every five years after the completion of the initial process hazard analysis",
+  "answerable": true
+ },
+ {
+  "id": 58,
+  "answer": "General site workers must receive 40 hours of off-site instruction and 3 days of supervised field experience. Occasional workers must receive 24 hours of off-site instruction and 1 day of supervised field experience; supervisors and managers need the applicable worker training plus 8 additional hours.",
+  "citation": "1910.120(e)(3)(i)-(iii)",
+  "key_facts": [
+   "40 hours and 3 days supervised field experience",
+   "24 hours and 1 day supervised field experience",
+   "8 additional hours for supervisors and managers"
+  ],
+  "quote": "General site workers ... shall receive 40 hours of off-site instruction and a minimum of three days actual field experience",
+  "answerable": true
+ },
+ {
+  "id": 59,
+  "answer": "Red must be used for danger, stop, emergency-stop controls, and fire-protection equipment. The standard does not require fire-protection equipment and danger markings to use different colors.",
+  "citation": "1910.144(a)(1)",
+  "key_facts": [
+   "red",
+   "danger",
+   "fire-protection equipment"
+  ],
+  "quote": "Red shall be the basic color for the identification of fire protection equipment and apparatus",
+  "answerable": true
+ },
+ {
+  "id": 60,
+  "answer": "Use danger signs for an immediate hazard that presents a serious threat of death or serious injury. Use caution signs for a potential hazard or unsafe practice that may result in minor or moderate injury.",
+  "citation": "1910.145(c)(1)(i)-(ii)",
+  "key_facts": [
+   "DANGER for immediate hazard",
+   "serious injury or death",
+   "CAUTION for potential hazards"
+  ],
+  "quote": "Danger signs shall be used only where an immediate hazard exists",
+  "answerable": true
+ }
+]
