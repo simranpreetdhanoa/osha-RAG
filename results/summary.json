@@ -1,40 +1,23 @@
 {
+  "method": "dense_lsa",
   "retrieval": {
-    "bm25": {
-      "recall@5": 0.95,
-      "mrr@10": 0.9033
-    },
-    "tfidf": {
-      "recall@5": 0.9333,
-      "mrr@10": 0.9019
-    },
-    "hybrid_rrf": {
-      "recall@5": 0.95,
-      "mrr@10": 0.9015
-    },
-    "dense_lsa": {
-      "recall@5": 0.9333,
-      "mrr@10": 0.8993
-    },
-    "hybrid_bm25+dense_lsa": {
-      "recall@5": 0.95,
-      "mrr@10": 0.9097
-    }
+    "recall@5": 0.9333,
+    "mrr@10": 0.8993
   },
   "semantic_similarity": {
-    "to_golden_answer": 0.704,
-    "random_baseline": 0.053
+    "to_golden_answer": 0.664,
+    "random_baseline": 0.055
   },
   "hallucination": {
     "answers_flagged": 0,
-    "checker_detection_rate": 0.982,
+    "checker_detection_rate": 0.986,
     "checker_false_positive_rate": 0,
-    "n_injected": 281
+    "n_injected": 276
   },
   "numerical": {
     "questions_with_numbers": 26,
-    "numbers_found": "41/69",
-    "numeric_recall": 0.594,
-    "all_numbers_correct": 0.462
+    "numbers_found": "19/69",
+    "numeric_recall": 0.275,
+    "all_numbers_correct": 0.077
   }
 }

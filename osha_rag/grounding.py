@@ -7,6 +7,7 @@ A sentence in an answer counts as GROUNDED in its cited section only if all four
                  and >= CONTAIN_MIN of its content words appear in the cited section
   4. negation  - the sentence has no more negations (not/no/never) than its closest source sentence
 """
+import itertools
 import random
 import re
 import statistics
@@ -92,7 +93,7 @@ def perturb(ans, g: Grounding, kind, rng):
             return None
         i = idx[0]
         n = NUM.search(claims[i]["text"]).group()
-        new = next(str(int(float(n)) + d) for d in (7, 13, 29, 101, 997)
+        new = next(str(int(float(n)) + d) for d in itertools.chain((7, 13, 29, 101, 997), itertools.count(1000))
                    if str(int(float(n)) + d) not in g.src_nums[claims[i]["cite"]])
         claims[i]["text"] = claims[i]["text"].replace(n, new, 1)
     elif kind == "foreign_sentence":

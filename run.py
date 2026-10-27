@@ -8,12 +8,11 @@ import argparse
 import json
 from pathlib import Path
 
-from osha_rag.embed import Dense, HybridDense
+from osha_rag.embed import Dense
 from osha_rag.evaluate import evaluate, to_markdown, write
 from osha_rag.golden import score_answers, verify_golden
 from osha_rag.grounding import Grounding, evaluate_grounding
 from osha_rag.ingest import build_corpus, load_chunks
-from osha_rag.retrieve import BM25, TFIDF, Hybrid
 from osha_rag import summary
 
 ROOT = Path(__file__).parent
@@ -48,8 +47,7 @@ def main():
 
     chunks = load_chunks(DATA)
     dense = Dense(chunks, args.embedder, cache_dir=DATA)
-    hybrid = HybridDense(chunks, dense)
-    g = Grounding(chunks, hybrid, dense.emb, args.sentences)
+    g = Grounding(chunks, dense, dense.emb, args.sentences)
 
     if args.cmd == "ask":
         ans = g.answer(args.question)
@@ -60,10 +58,10 @@ def main():
         print(f"\nhallucination detected: {chk['hallucination']}")
     elif args.cmd == "eval":
         qs = [json.loads(l) for l in (ROOT / "eval/questions.jsonl").read_text().splitlines() if l]
-        rep = evaluate(chunks, qs, (BM25, TFIDF, Hybrid, lambda c: dense, lambda c: hybrid))
+        rep = evaluate(chunks, qs, (lambda c: dense,))
         rep["grounding"] = evaluate_grounding(g, qs)
         rep["golden"] = {}
-        answerers = {"bm25": Grounding(chunks, BM25(chunks), dense.emb, args.sentences), hybrid.name: g}
+        answerers = {dense.name: g}
         for label, fname in (("as_given", "golden_answers.json"), ("corrected", "golden_answers_corrected.json")):
             if (ROOT / "eval" / fname).exists():
                 gold = json.loads((ROOT / "eval" / fname).read_text())

@@ -34,24 +34,23 @@ python -m pytest tests
 ```
 `--parts 1910 1926` adds the Construction standards. `--xml` also accepts GovInfo bulk CFR XML.
 
-## Results (Part 1910 as of 2026-10-22, 60 questions, `lsa` embedder)
+## Results (Part 1910 as of 2026-10-22, 60 questions)
 
-| Method | Hit@1 | Hit@10 | MRR@10 | p50 latency |
-|---|---|---|---|---|
-| BM25 | 0.867 | 0.983 | 0.903 | 2 ms |
-| TF-IDF | 0.867 | 0.967 | 0.902 | 1 ms |
-| FAISS dense (LSA) | 0.867 | 0.950 | 0.899 | 54 ms |
-| BM25 + dense hybrid | 0.883 | 0.950 | 0.910 | 58 ms |
+Method: **FAISS semantic search (LSA embedder)**, 5-sentence answers, corrected golden answers.
+`python run.py summary` prints these after `python run.py eval`.
 
-**Against golden answers** (`eval/golden_answers_corrected.json`, BM25 answerer): key-fact recall 0.42 (5-sentence answers; 0.32 with 2),
-12/60 answers contain every key fact, token F1 0.19, ROUGE-L 0.16, semantic similarity 0.70
-(0.05 for a random golden answer), and 67% of key facts appear in the top-3 retrieved passages.
+| Metric | Value |
+|---|---|
+| Recall@5 | 0.933 |
+| MRR | 0.899 |
+| Semantic similarity to golden answer | 0.664 (random baseline 0.055) |
+| Answers flagged as hallucination | 0% |
+| Hallucination checker: injected errors caught | 98.6% of 276 (0% false positives) |
+| Numerical accuracy: golden numbers found | 19/69 (27.5%) |
 
 **Golden answers checked against the regulation:** the model-written golden answers had 3 factual
 errors (Q41, Q47, Q55) and 4 partial errors (Q5, Q22, Q33, Q50); 33 of 60 "verbatim" quotes are not
 in the text. `golden_answers_corrected.json` fixes them; each change has a `review` note.
-
-**Hallucination checker:** 0% false positives on clean answers; 98.2% of 281 injected errors caught.
 
 **Caveats:** answers are extractive, so the 0% flagged rate measures false alarms, not model
 honesty. Key-fact matching is lenient (all numbers + 60% of words).

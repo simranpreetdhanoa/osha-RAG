@@ -23,13 +23,15 @@ def numeric_accuracy(per_question, golden):
             "numeric_recall": round(found / total, 3), "all_numbers_correct": round(statistics.mean(exact), 3)}
 
 
-def summarize(results: Path, golden_path: Path, answerer="bm25") -> dict:
+def summarize(results: Path, golden_path: Path) -> dict:
     rep = json.loads((results / "metrics.json").read_text())
     golden = json.loads(golden_path.read_text())
-    gold_rows = rep["golden"]["corrected"]["systems"][answerer]
+    method, = rep["systems"]
+    gold_rows = rep["golden"]["corrected"]["systems"][method]
     stress = rep["grounding"]["checker_stress_test"]
     return {
-        "retrieval": {n: {"recall@5": s["recall@5"], "mrr@10": s["mrr@10"]} for n, s in rep["systems"].items()},
+        "method": method,
+        "retrieval": {"recall@5": rep["systems"][method]["recall@5"], "mrr@10": rep["systems"][method]["mrr@10"]},
         "semantic_similarity": {"to_golden_answer": gold_rows["all_questions"]["semantic_sim"],
                                 "random_baseline": gold_rows["all_questions"]["semantic_sim_random_baseline"]},
         "hallucination": {"answers_flagged": rep["grounding"]["answers"]["flagged_as_hallucination"],
@@ -41,10 +43,9 @@ def summarize(results: Path, golden_path: Path, answerer="bm25") -> dict:
 
 
 def to_markdown(s: dict) -> str:
-    out = ["# OSHA Assistant — headline metrics\n", "## Retrieval\n", "| method | Recall@5 | MRR |", "|---|---|---|"]
-    out += [f"| {n} | {v['recall@5']} | {v['mrr@10']} |" for n, v in s["retrieval"].items()]
-    sem, hal, num = s["semantic_similarity"], s["hallucination"], s["numerical"]
-    out += ["\n## Answers (BM25 answerer, corrected golden answers)\n",
+    sem, hal, num, ret = s["semantic_similarity"], s["hallucination"], s["numerical"], s["retrieval"]
+    out = ["# OSHA Assistant — headline metrics\n", f"Method: {s['method']} (corrected golden answers)\n",
+            f"- Recall@5: {ret['recall@5']}", f"- MRR: {ret['mrr@10']}",
             f"- Semantic similarity to golden answer: {sem['to_golden_answer']} (random baseline {sem['random_baseline']})",
             f"- Hallucination: {hal['answers_flagged']} of answers flagged; checker caught "
             f"{hal['checker_detection_rate']} of {hal['n_injected']} injected errors, "
