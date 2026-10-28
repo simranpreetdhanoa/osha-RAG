@@ -8,31 +8,31 @@ section back, with the text and the citation. Source data is the public-domain e
    section and appendix (appendices are linked to their parent section). Split the text into
    chunks of at most 220 words that keep paragraph boundaries, overlap by one paragraph, and carry
    the section heading.
-2. **Retrieve** (`osha_rag/retrieve.py`): BM25, TF-IDF cosine, and a hybrid that merges the two with
-   reciprocal rank fusion (RRF). Section headings count double, and a small synonym map turns
-   plain words into regulatory terms (forklift → powered industrial truck, SDS, LOTO, PPE…).
-   Results are collapsed to one hit per section.
-3. **Semantic search** (`osha_rag/embed.py`): passages embedded and stored in a FAISS
-   `IndexFlatIP` (cosine). Embedders: `minilm` (all-MiniLM-L6-v2) or `lsa` (TF-IDF + SVD trained on
-   the corpus, no download). Also a BM25 + dense hybrid.
-4. **Answers + hallucination check** (`osha_rag/grounding.py`): extractive 2-sentence answers with
-   section citations. Each sentence is checked: citation exists, numbers appear in the source,
-   semantic + word overlap with a source sentence, no added negation. A stress test injects
-   known errors (changed numbers, negations, wrong/fake citations, foreign sentences) and
-   measures how many the checker catches.
-5. **Evaluate** (`osha_rag/evaluate.py`): 60 questions (`eval/questions.jsonl`) across 13 topics,
-   each labeled with the section(s) that answer it. Metrics: Hit@1/3/5/10, Recall@k, MRR@10,
-   nDCG@10, p50/p95 query latency, and Hit@1 per topic.
+2. **Embed + index** (`osha_rag/embed.py`): every passage becomes a 256-dimension vector with LSA
+   (TF-IDF + truncated SVD trained on the corpus; no download needed) and is stored in a FAISS
+   `IndexFlatIP` (cosine similarity). `--embedder minilm` uses all-MiniLM-L6-v2 instead.
+3. **Search**: the question is embedded the same way; FAISS returns the closest passages, collapsed to
+   one hit per section.
+4. **Answer + hallucination check** (`osha_rag/grounding.py`): the 5 sentences closest to the question
+   (from the top 3 sections) are returned with their section citations. Each sentence is checked:
+   the citation exists, every number appears in the source, it matches a source sentence in meaning
+   and wording, and it adds no negation. A stress test plants known errors and measures how many
+   the checker catches.
+5. **Evaluate** (`osha_rag/evaluate.py`, `golden.py`, `summary.py`): 60 questions
+   (`eval/questions.jsonl`) across 13 topics, each labeled with its correct section, plus golden
+   answers checked against the regulation text. Metrics: Recall@5, MRR, semantic similarity to the
+   golden answer, hallucination detection, numerical accuracy.
 
 ## Usage
 ```bash
 pip install -r requirements.txt
 python run.py build                 # or: python run.py build --xml path/to/title-29.xml
 python run.py ask "how often must fire extinguishers be inspected?"   # add --embedder minilm
-python run.py eval                  # writes results/metrics.json and results/report.md
+python run.py eval                  # writes results/metrics.json, report.md, summary.md
+python run.py summary               # headline metrics only
 python -m pytest tests
 ```
-`--parts 1910 1926` adds the Construction standards. `--xml` also accepts GovInfo bulk CFR XML.
+`--parts 1910 1926` adds the Construction standards. Chunks overlap by one paragraph (MRR 0.899 vs 0.856 with no overlap). `--xml` also accepts GovInfo bulk CFR XML.
 
 ## Results (Part 1910 as of 2026-10-22, 60 questions)
 
