@@ -8,9 +8,11 @@ section back, with the text and the citation. Source data is the public-domain e
    section and appendix (appendices are linked to their parent section). Split the text into
    chunks of at most 220 words that keep paragraph boundaries, overlap by one paragraph, and carry
    the section heading.
-2. **Embed + index** (`osha_rag/embed.py`): every passage becomes a 256-dimension vector with LSA
-   (TF-IDF + truncated SVD trained on the corpus; no download needed) and is stored in a FAISS
-   `IndexFlatIP` (cosine similarity). `--embedder minilm` uses all-MiniLM-L6-v2 instead.
+2. **Embed + index** (`osha_rag/embed.py`): every passage becomes a 384-dimension vector with
+   **all-MiniLM-L6-v2** (mean pooling + L2 normalization) and is stored in a FAISS `IndexFlatIP`
+   (cosine similarity). Uses `sentence-transformers` if installed; otherwise runs the model's ONNX
+   export with `onnxruntime`, downloaded on first use and checked against a pinned SHA-256.
+   `--embedder lsa` uses a corpus-trained LSA model instead.
 3. **Search**: the question is embedded the same way; FAISS returns the closest passages, collapsed to
    one hit per section.
 4. **Answer + hallucination check** (`osha_rag/grounding.py`): the 5 sentences closest to the question
@@ -27,7 +29,7 @@ section back, with the text and the citation. Source data is the public-domain e
 ```bash
 pip install -r requirements.txt
 python run.py build                 # or: python run.py build --xml path/to/title-29.xml
-python run.py ask "how often must fire extinguishers be inspected?"   # add --embedder minilm
+python run.py ask "how often must fire extinguishers be inspected?"
 python run.py eval                  # writes results/metrics.json, report.md, summary.md
 python run.py summary               # headline metrics only
 python -m pytest tests
@@ -36,17 +38,19 @@ python -m pytest tests
 
 ## Results (Part 1910 as of 2026-10-22, 60 questions)
 
-Method: **FAISS semantic search (LSA embedder)**, 5-sentence answers, corrected golden answers.
+Method: **FAISS semantic search with all-MiniLM-L6-v2**, 5-sentence answers, corrected golden answers.
 `python run.py summary` prints these after `python run.py eval`.
 
-| Metric | Value |
-|---|---|
-| Recall@5 | 0.933 |
-| MRR | 0.899 |
-| Semantic similarity to golden answer | 0.664 (random baseline 0.055) |
-| Answers flagged as hallucination | 0% |
-| Hallucination checker: injected errors caught | 98.6% of 276 (0% false positives) |
-| Numerical accuracy: golden numbers found | 19/69 (27.5%) |
+| Metric | all-MiniLM-L6-v2 | LSA (previous) |
+|---|---|---|
+| Recall@5 | **1.000** | 0.933 |
+| MRR | **0.923** | 0.899 |
+| Semantic similarity to golden answer | **0.730** (random baseline 0.209) | 0.664 (random 0.055) |
+| Answers flagged as hallucination | 0% | 0% |
+| Hallucination checker: injected errors caught | 96.5% of 289 (0% false positives) | 98.6% of 276 |
+| Numerical accuracy: golden numbers found | **47/69 (68.1%)** | 19/69 (27.5%) |
+
+Similarity scores from the two models are not on the same scale; compare each to its own random baseline.
 
 **Golden answers checked against the regulation:** the model-written golden answers had 3 factual
 errors (Q41, Q47, Q55) and 4 partial errors (Q5, Q22, Q33, Q50); 33 of 60 "verbatim" quotes are not

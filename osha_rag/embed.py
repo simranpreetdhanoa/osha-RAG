@@ -36,18 +36,72 @@ class LSAEmbedder:
         return _norm(self.svd.transform(self.vec.transform(texts)))
 
 
+ONNX_URL = "https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz"
+ONNX_SHA256 = "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3"  # as pinned by chromadb
+MODEL_DIR = Path(__file__).resolve().parent.parent / "models"
+
+
+def fetch_onnx_minilm(model_dir: Path = MODEL_DIR) -> Path:
+    """Download the ONNX export of all-MiniLM-L6-v2 once and verify its checksum."""
+    import hashlib
+    import tarfile
+
+    import requests
+    onnx_dir = model_dir / "onnx"
+    if (onnx_dir / "model.onnx").exists():
+        return onnx_dir
+    model_dir.mkdir(parents=True, exist_ok=True)
+    archive = model_dir / "onnx.tar.gz"
+    archive.write_bytes(requests.get(ONNX_URL, timeout=600).content)
+    if hashlib.sha256(archive.read_bytes()).hexdigest() != ONNX_SHA256:
+        archive.unlink()
+        raise RuntimeError("all-MiniLM-L6-v2 download failed checksum verification")
+    with tarfile.open(archive) as tar:
+        tar.extractall(model_dir, filter="data")
+    archive.unlink()
+    return onnx_dir
+
+
 class MiniLMEmbedder:
+    """sentence-transformers/all-MiniLM-L6-v2 (384-d): mean pooling over tokens, then L2 normalization.
+
+    Uses the sentence-transformers library when installed; otherwise runs the same model's ONNX export
+    with onnxruntime (no PyTorch needed).
+    """
     name = "minilm"
 
-    def __init__(self, model="sentence-transformers/all-MiniLM-L6-v2"):
-        from sentence_transformers import SentenceTransformer
-        self.model = SentenceTransformer(model)
+    def __init__(self, model="sentence-transformers/all-MiniLM-L6-v2", max_tokens=256, batch_size=32):
+        self.batch_size = batch_size
+        try:
+            from sentence_transformers import SentenceTransformer
+            self.st = SentenceTransformer(model)
+        except ImportError:
+            import onnxruntime as ort
+            from tokenizers import Tokenizer
+            self.st = None
+            onnx_dir = fetch_onnx_minilm()
+            self.tok = Tokenizer.from_file(str(onnx_dir / "tokenizer.json"))
+            self.tok.enable_truncation(max_tokens)
+            self.tok.enable_padding(pad_id=0, pad_token="[PAD]")
+            self.sess = ort.InferenceSession(str(onnx_dir / "model.onnx"), providers=["CPUExecutionProvider"])
 
     def fit(self, texts):
         return self
 
     def encode(self, texts):
-        return _norm(self.model.encode(list(texts), batch_size=64, show_progress_bar=False))
+        texts = list(texts)
+        if self.st is not None:
+            return _norm(self.st.encode(texts, batch_size=self.batch_size, show_progress_bar=False))
+        out = []
+        for i in range(0, len(texts), self.batch_size):
+            enc = self.tok.encode_batch(texts[i:i + self.batch_size])
+            ids = np.array([e.ids for e in enc], dtype="int64")
+            mask = np.array([e.attention_mask for e in enc], dtype="int64")
+            hidden = self.sess.run(None, {"input_ids": ids, "attention_mask": mask,
+                                          "token_type_ids": np.zeros_like(ids)})[0]
+            m = mask[..., None].astype("float32")
+            out.append((hidden * m).sum(1) / np.maximum(m.sum(1), 1e-9))
+        return _norm(np.vstack(out))
 
 
 EMBEDDERS = {"lsa": LSAEmbedder, "minilm": MiniLMEmbedder}

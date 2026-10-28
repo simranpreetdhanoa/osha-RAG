@@ -2,7 +2,7 @@
 
   python run.py build [--parts 1910] [--xml FILE ...]       download + index
   python run.py ask "how often inspect fire extinguishers"  answer + hallucination check
-  python run.py eval [--embedder lsa|minilm]                 all metrics -> results/
+  python run.py eval [--embedder minilm|lsa]                 all metrics -> results/
 """
 import argparse
 import json
@@ -27,7 +27,7 @@ def main():
     b.add_argument("--xml", nargs="*", type=Path, help="use local CFR XML instead of downloading")
     for name in ("ask", "eval"):
         p = sub.add_parser(name)
-        p.add_argument("--embedder", default="lsa", choices=["lsa", "minilm"])
+        p.add_argument("--embedder", default="minilm", choices=["minilm", "lsa"])
         p.add_argument("--sentences", type=int, default=5, help="sentences per answer")
     sub.choices["ask"].add_argument("question")
     sub.add_parser("summary", help="headline metrics from the last eval")

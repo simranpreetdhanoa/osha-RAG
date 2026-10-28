@@ -3,6 +3,8 @@ lxml
 numpy
 scikit-learn
 faiss-cpu
+onnxruntime
+tokenizers
 pytest
 # optional, for --embedder minilm
 # sentence-transformers
