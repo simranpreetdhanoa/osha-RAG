@@ -37,7 +37,8 @@ def summarize(results: Path, golden_path: Path) -> dict:
         "hallucination": {"answers_flagged": rep["grounding"]["answers"]["flagged_as_hallucination"],
                           "checker_detection_rate": stress["overall_detection_rate"],
                           "checker_false_positive_rate": stress["false_positive_rate_on_clean"],
-                          "n_injected": stress["n_injected"]},
+                          "n_injected": stress["n_injected"],
+                          "by_type": {k: v["detection_rate"] for k, v in stress["by_type"].items()}},
         "numerical": numeric_accuracy(gold_rows["per_question"], golden),
     }
 
@@ -52,4 +53,28 @@ def to_markdown(s: dict) -> str:
             f"false-positive rate {hal['checker_false_positive_rate']}",
             f"- Numerical accuracy: {num['numbers_found']} golden numbers found ({num['numeric_recall']}); "
             f"all numbers correct in {num['all_numbers_correct']} of {num['questions_with_numbers']} numeric questions"]
+    return "\n".join(out) + "\n"
+
+
+NAMES = {"lsa": "LSA (TF-IDF + SVD, 256-d)", "minilm": "all-MiniLM-L6-v2 (384-d)"}
+
+
+def compare(runs: dict) -> str:
+    """Side-by-side headline metrics for each embedding technique."""
+    pct = lambda x: f"{100 * x:.1f}%"
+    rows = [("Recall@5", lambda s: pct(s["retrieval"]["recall@5"])),
+            ("MRR", lambda s: f"{s['retrieval']['mrr@10']:.3f}"),
+            ("Semantic similarity to golden answer", lambda s: f"{s['semantic_similarity']['to_golden_answer']:.3f}"),
+            ("  random-answer baseline", lambda s: f"{s['semantic_similarity']['random_baseline']:.3f}"),
+            ("  margin over baseline", lambda s: f"{s['semantic_similarity']['to_golden_answer'] - s['semantic_similarity']['random_baseline']:.3f}"),
+            ("Answers flagged as hallucination", lambda s: pct(s["hallucination"]["answers_flagged"])),
+            ("Checker: injected errors caught", lambda s: f"{pct(s['hallucination']['checker_detection_rate'])} of {s['hallucination']['n_injected']}"),
+            ("Checker: false positives", lambda s: pct(s["hallucination"]["checker_false_positive_rate"]))]
+    kinds = sorted({k for s in runs.values() for k in s["hallucination"].get("by_type", {})})
+    rows += [(f"  caught: {k}", lambda s, k=k: pct(s["hallucination"]["by_type"][k])) for k in kinds]
+    rows += [("Numerical accuracy: golden numbers found", lambda s: f"{s['numerical']['numbers_found']} ({pct(s['numerical']['numeric_recall'])})"),
+             ("Numerical: answers with every number right", lambda s: pct(s["numerical"]["all_numbers_correct"]))]
+    out = ["# Embedding techniques compared\n", "FAISS semantic search, 60 questions, 5-sentence answers, corrected golden answers.\n",
+           "| Metric | " + " | ".join(NAMES.get(e, e) for e in runs) + " |", "|---" * (len(runs) + 1) + "|"]
+    out += [f"| {label} | " + " | ".join(f(s) for s in runs.values()) + " |" for label, f in rows]
     return "\n".join(out) + "\n"

@@ -1,0 +1,30 @@
+{
+  "method": "dense_lsa",
+  "retrieval": {
+    "recall@5": 0.9333,
+    "mrr@10": 0.8993
+  },
+  "semantic_similarity": {
+    "to_golden_answer": 0.664,
+    "random_baseline": 0.055
+  },
+  "hallucination": {
+    "answers_flagged": 0,
+    "checker_detection_rate": 0.986,
+    "checker_false_positive_rate": 0,
+    "n_injected": 276,
+    "by_type": {
+      "number_swap": 1.0,
+      "foreign_sentence": 0.967,
+      "wrong_citation": 0.967,
+      "fake_citation": 1.0,
+      "negation": 1.0
+    }
+  },
+  "numerical": {
+    "questions_with_numbers": 26,
+    "numbers_found": "19/69",
+    "numeric_recall": 0.275,
+    "all_numbers_correct": 0.077
+  }
+}

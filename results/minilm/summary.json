@@ -12,7 +12,14 @@
     "answers_flagged": 0,
     "checker_detection_rate": 0.965,
     "checker_false_positive_rate": 0,
-    "n_injected": 289
+    "n_injected": 289,
+    "by_type": {
+      "number_swap": 1.0,
+      "foreign_sentence": 0.933,
+      "wrong_citation": 0.9,
+      "fake_citation": 1.0,
+      "negation": 1.0
+    }
   },
   "numerical": {
     "questions_with_numbers": 26,

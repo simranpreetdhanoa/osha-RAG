@@ -2,7 +2,8 @@
 
   python run.py build [--parts 1910] [--xml FILE ...]       download + index
   python run.py ask "how often inspect fire extinguishers"  answer + hallucination check
-  python run.py eval [--embedder minilm|lsa]                 all metrics -> results/
+  python run.py eval [--embedder minilm|lsa]                 all metrics -> results/<embedder>/
+  python run.py compare                                      results/comparison.md (both techniques)
 """
 import argparse
 import json
@@ -30,7 +31,9 @@ def main():
         p.add_argument("--embedder", default="minilm", choices=["minilm", "lsa"])
         p.add_argument("--sentences", type=int, default=5, help="sentences per answer")
     sub.choices["ask"].add_argument("question")
-    sub.add_parser("summary", help="headline metrics from the last eval")
+    sub.add_parser("summary", help="headline metrics from the last eval").add_argument(
+        "--embedder", default="minilm", choices=["minilm", "lsa"])
+    sub.add_parser("compare", help="compare the techniques' headline metrics")
     args = ap.parse_args()
 
     if args.cmd == "build":
@@ -38,10 +41,17 @@ def main():
         print(f"indexed {len(chunks)} chunks from {len({c['section'] for c in chunks})} sections")
         return
 
+    if args.cmd == "compare":
+        md = summary.compare({e: json.loads((RESULTS / e / "summary.json").read_text()) for e in ("lsa", "minilm")})
+        (RESULTS / "comparison.md").write_text(md)
+        print(md)
+        return
+
+    out = RESULTS / args.embedder
     if args.cmd == "summary":
-        s = summary.summarize(RESULTS, ROOT / "eval/golden_answers_corrected.json")
-        (RESULTS / "summary.json").write_text(json.dumps(s, indent=2))
-        (RESULTS / "summary.md").write_text(summary.to_markdown(s))
+        s = summary.summarize(out, ROOT / "eval/golden_answers_corrected.json")
+        (out / "summary.json").write_text(json.dumps(s, indent=2))
+        (out / "summary.md").write_text(summary.to_markdown(s))
         print(summary.to_markdown(s))
         return
 
@@ -68,11 +78,11 @@ def main():
                 ver = verify_golden(gold, qs, g.src_text)
                 rep["golden"][label] = {"verification": ver, "systems": {
                     n: score_answers(a, gold, ver, qs) for n, a in answerers.items()}}
-        write(rep, RESULTS)
+        write(rep, out)
         print(to_markdown(rep))
-        s = summary.summarize(RESULTS, ROOT / "eval/golden_answers_corrected.json")
-        (RESULTS / "summary.json").write_text(json.dumps(s, indent=2))
-        (RESULTS / "summary.md").write_text(summary.to_markdown(s))
+        s = summary.summarize(out, ROOT / "eval/golden_answers_corrected.json")
+        (out / "summary.json").write_text(json.dumps(s, indent=2))
+        (out / "summary.md").write_text(summary.to_markdown(s))
         print(summary.to_markdown(s))
 
 
